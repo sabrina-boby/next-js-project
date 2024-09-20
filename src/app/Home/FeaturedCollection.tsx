@@ -10,7 +10,7 @@ const FeaturedCollection = () => {
   const [parentColor, setParentColor] = useState("bg-red-700");
 
   // Function to handle child click and update the parent color
-  const handleChildClick = (color: any) => {
+  const handleChildClick = (color: string) => {
     setParentColor(color);
   };
 
