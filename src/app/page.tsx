@@ -4,7 +4,7 @@ import Info from "./Home/info";
 import Document from "./Home/document";
 import Discover from "./Home/DiscoverMore";
 import FeaturedCollection from "./Home/FeaturedCollection";
-import Carousel from "./Home/Carousel";
+import CarasolSection from "./Home/CarasolSection";
 
 export default function HomePage() {
   return (
@@ -16,7 +16,7 @@ export default function HomePage() {
         <Document />
       </div>
       <div className="container mx-auto">
-        <Carousel />
+        <CarasolSection/>
         <FeaturedCollection />
         <Discover />
       </div>

@@ -1,29 +1,7 @@
-// import Image from "next/image";
-// import Group from "@/public/assets/Group.png";
-
-// const document = () => {
-//   return (
-//     <div className="flex justify-between w-full mt-20 py-20">
-//       <div className="w-2/4 flex flex-col items-center justify-center text-2xl font-bold">
-//         <p>
-//         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  qui officia deserunt mollit anim id est laborum.
-//         </p>
-//         <button className="mt-20 outline rounded-3xl px-7 py-3 outline-1 text-blue-900 hover:bg-blue-900 hover:text-white transition-colors">
-//         Explore Now
-//         </button>
-//       </div>
-//       <div className="w-[450px]">
-//         <Image className="" src={Group} alt={"photo"} />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default document;
-
 
 import Image from "next/image";
 import Group from "@/public/assets/Group.png";
+
 
 const Document = () => {
   return (
