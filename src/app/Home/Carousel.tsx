@@ -10,28 +10,22 @@ const Carousel = () => {
     "#00CED1",
     "#FFD700",
     "#9370DB",
-    "#D9B4FC",
-    "#AFFFD9",
-    "#9B17AF",
-    "#FFB6C1",
-    "#00CED1",
-    "#FFD700",
-    "#9370DB",
   ]; // Array of color boxes
   const [currentIndex, setCurrentIndex] = useState(2); // Start with the 3rd item (index 2) in the middle
 
+  // Function to get the correct index in a circular manner
+  const getIndex = (index: number) => {
+    return (index + colors.length) % colors.length;
+  };
+
   // Handle left arrow click
   const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? colors.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => getIndex(prevIndex - 1));
   };
 
   // Handle right arrow click
   const handleNextClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === colors.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => getIndex(prevIndex + 1));
   };
 
   return (
@@ -46,25 +40,27 @@ const Carousel = () => {
 
       {/* Carousel container */}
       <div className="flex justify-center items-center gap-4 w-full">
-        {/* Displaying 5 boxes */}
-        {colors
-          .slice(currentIndex - 2, currentIndex + 3)
-          .map((color, index) => {
-            // Determine size based on position relative to the center
-            let boxSize = "w-24 h-40"; // Small box size
-            let zIndex = "z-0";
-            if (index === 2) {
-              boxSize = "w-36 h-60"; // Main center box size
-              zIndex = "z-10";
-            }
-            return (
-              <div
-                key={color}
-                className={`transition-all duration-300 ease-in-out ${boxSize} rounded-lg shadow-lg ${zIndex}`}
-                style={{ backgroundColor: color }}
-              ></div>
-            );
-          })}
+        {/* Displaying 5 boxes in an infinite loop */}
+        {[...Array(5)].map((_, index) => {
+          const adjustedIndex = getIndex(currentIndex - 2 + index);
+          const color = colors[adjustedIndex];
+
+          // Determine size based on position relative to the center
+          let boxSize = "w-24 h-40"; // Small box size
+          let zIndex = "z-0";
+          if (index === 2) {
+            boxSize = "w-36 h-60"; // Main center box size
+            zIndex = "z-10";
+          }
+
+          return (
+            <div
+              key={adjustedIndex}
+              className={`transition-all duration-300 ease-in-out ${boxSize} rounded-lg shadow-lg ${zIndex}`}
+              style={{ backgroundColor: color }}
+            ></div>
+          );
+        })}
       </div>
 
       {/* Right arrow */}
