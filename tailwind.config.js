@@ -17,6 +17,7 @@ module.exports = {
         squire5:"#26DBDB",
         squire6:"#B126DB",
         squire7:"#DB4126",
+        bgColor2:"#6BE6A8",
       },
       boxShadow: {
         // shadowCol: "rgb(38, 57, 77) 0px 20px 30px -10px",
